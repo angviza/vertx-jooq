@@ -488,8 +488,8 @@ public class VertxGeneratorBuilder {
 
         @Override
         public FinalStep withGuice(boolean generateGuiceModules, NamedInjectionStrategy namedInjectionStrategy) {
-            base.setWriteDAOConstructorAnnotationDelegate((out)->out.tab(1).println("@javax.inject.Inject"));
-            base.setWriteDAOClassAnnotationDelegate((out)-> out.println("@javax.inject.Singleton"));
+            base.setWriteDAOConstructorAnnotationDelegate((out)->out.tab(1).println("@jakarta.inject.Inject"));
+            base.setWriteDAOClassAnnotationDelegate((out)-> out.println("@jakarta.inject.Singleton"));
             base.setNamedInjectionStrategy(namedInjectionStrategy);
             if (generateGuiceModules) {
                 base.addWriteExtraDataDelegate((schema, writerGen) -> {

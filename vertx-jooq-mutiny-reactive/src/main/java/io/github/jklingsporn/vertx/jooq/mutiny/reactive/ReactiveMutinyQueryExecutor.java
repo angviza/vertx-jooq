@@ -7,6 +7,7 @@ import io.vertx.mutiny.sqlclient.SqlClient;
 import io.vertx.mutiny.sqlclient.SqlConnection;
 import io.vertx.mutiny.sqlclient.Transaction;
 import io.vertx.sqlclient.Row;
+import jakarta.inject.Inject;
 import org.jooq.*;
 import org.jooq.impl.DefaultConfiguration;
 
@@ -23,14 +24,15 @@ public class ReactiveMutinyQueryExecutor<R extends UpdatableRecord<R>,P,T> exten
     private final Function<Row,P> pojoMapper;
     private final BiFunction<Function<DSLContext, ? extends InsertResultStep<R>>, Function<Object, T>, Uni<T>> insertReturningDelegate;
 
+    @Inject
     public ReactiveMutinyQueryExecutor(SqlClient delegate, Function<Row, P> pojoMapper) {
         this(new DefaultConfiguration().set(SQLDialect.POSTGRES),delegate,pojoMapper);
     }
-
+    @Inject
     public ReactiveMutinyQueryExecutor(Configuration configuration, SqlClient delegate, Function<Row, P> pojoMapper) {
         this(configuration, delegate, pojoMapper, null);
     }
-
+    @Inject
     ReactiveMutinyQueryExecutor(Configuration configuration, SqlClient delegate, Function<Row, P> pojoMapper, Transaction transaction) {
         super(configuration,delegate,transaction);
         this.pojoMapper = pojoMapper;

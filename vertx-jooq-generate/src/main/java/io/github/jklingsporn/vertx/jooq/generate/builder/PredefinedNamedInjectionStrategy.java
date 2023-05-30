@@ -12,9 +12,9 @@ public enum PredefinedNamedInjectionStrategy implements NamedInjectionStrategy {
      */
     DISABLED(s->""),
     /**
-     * Add {@code javax.inject.Named} annotations with the DAO's underlying schema as name.
+     * Add {@code jakarta.inject.Named} annotations with the DAO's underlying schema as name.
      */
-    SCHEMA(s->String.format("@javax.inject.Named(\"%s\")",s.toUpperCase()))
+    SCHEMA(s->String.format("@jakarta.inject.Named(\"%s\")",s.toUpperCase()))
     ;
 
     private final UnaryOperator<String> op;

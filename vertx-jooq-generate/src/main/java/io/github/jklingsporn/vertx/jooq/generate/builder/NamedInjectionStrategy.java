@@ -3,7 +3,7 @@ package io.github.jklingsporn.vertx.jooq.generate.builder;
 import java.util.function.UnaryOperator;
 
 /**
- * Defines if and how to add {@code javax.inject.Named} annotations to support execution against multiple schemas. To disable,
+ * Defines if and how to add {@code jakarta.inject.Named} annotations to support execution against multiple schemas. To disable,
  * chose {@code PredefinedNamedInjectionStrategy.DISABLED}. If set to {@code PredefinedNamedInjectionStrategy.SCHEMA}
  * the following rules apply while generating the DAO's constructor:
  * <ul>
